@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,7 +10,19 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//
+//Route::get('/', function () {
+//    return view('index');
+//})->name('index');
+//
+//Route::get('tim-kiem', function () {
+//    return view('search');
+//})->name('search');
+//Route::get('lich-su', function () {
+//    return view('history');
+//})->name('history');
+//
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/',[\App\Http\Controllers\PopulationController::class, 'worldPopulation'])->name('index');
+Route::get('/all-country',[\App\Http\Controllers\PopulationController::class, 'all'])->name('all-country');
